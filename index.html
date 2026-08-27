@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kế hoạch chuyến đi Hòa Bình, Mai Châu và Ba Khan 3 ngày 2 đêm dành cho hai người."
+    />
+    <meta name="theme-color" content="#163d34" />
+    <title>Mình đi trốn nhé? — Hòa Bình 3N2Đ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="#top" aria-label="Về đầu trang">
+        <span class="brand-mark">t</span>
+        <span>trốn.</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
+        <a href="#lich-trinh">Lịch trình</a>
+        <a href="#di-chuyen">Di chuyển</a>
+        <a href="#vui-choi">Vui chơi</a>
+        <a href="#hanh-ly">Hành lý</a>
+      </nav>
+      <button class="nav-action" id="copyPlan" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 8V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3M6 8h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z"/></svg>
+        Sao chép plan
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false" type="button">
+        <span></span><span></span>
+      </button>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#lich-trinh">Lịch trình</a>
+        <a href="#di-chuyen">Di chuyển</a>
+        <a href="#vui-choi">Vui chơi</a>
+        <a href="#hanh-ly">Hành lý</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content shell">
+          <div class="eyebrow light reveal"><span></span> Hòa Bình · 3 ngày 2 đêm</div>
+          <h1 id="hero-title" class="reveal delay-1">Mình đi<br /><em>trốn</em> nhé?</h1>
+          <p class="hero-description reveal delay-2">
+            Một cuối tuần rời phố, đi qua thung lũng xanh.<br />Chỉ có hai đứa, Mai Châu và mặt hồ Ba Khan.
+          </p>
+          <a class="primary-cta reveal delay-3" href="#lich-trinh">
+            Xem hành trình
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 14 0m-5-5 5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="trip-facts shell reveal delay-3">
+          <div class="fact">
+            <span class="fact-label">Khởi hành</span>
+            <strong>29 — 31.08.2026</strong>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Đồng đội</span>
+            <strong>2 người</strong>
+          </div>
+          <div class="fact">
+            <span class="fact-label">Ngân sách</span>
+            <strong>Linh hoạt</strong>
+          </div>
+          <div class="countdown-wrap">
+            <span class="countdown-number" id="countdown">171</span>
+            <span class="fact-label">ngày nữa</span>
+          </div>
+        </div>
+
+        <a class="scroll-hint" href="#lich-trinh" aria-label="Cuộn xuống xem lịch trình">
+          <span>Cuộn để khám phá</span>
+          <i></i>
+        </a>
+      </section>
+
+      <section class="intro section-pad">
+        <div class="shell intro-grid">
+          <div class="section-kicker reveal-on-scroll">CHUYẾN ĐI SỐ 02</div>
+          <div class="intro-copy reveal-on-scroll">
+            <p class="display-copy">Ba ngày để đi thật xa,</p>
+            <p class="display-copy italic">rồi trở về gần nhau hơn.</p>
+          </div>
+          <div class="intro-note reveal-on-scroll">
+            <p>
+              Lịch trình vừa đủ — một ngày thong thả ở Mai Châu, một ngày theo cung hồ Ba Khan và vẫn chừa chỗ cho những lần dừng xe bất chợt.
+            </p>
+            <div class="avatar-pair" aria-label="Hai người đồng hành">
+              <span>L</span><span>T</span><small>Linh &amp; Thanh</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="itinerary section-pad" id="lich-trinh">
+        <div class="shell">
+          <div class="section-heading reveal-on-scroll">
+            <div>
+              <span class="section-number">01</span>
+              <span class="section-label">Thời gian</span>
+            </div>
+            <h2>Mỗi ngày một<br /><em>nhịp riêng.</em></h2>
+            <p>Không chạy checklist. Mình đi chậm, ăn ngon và dành thời gian nhìn ngắm thành phố.</p>
+          </div>
+
+          <div class="day-tabs reveal-on-scroll" role="tablist" aria-label="Chọn ngày">
+            <button class="day-tab active" role="tab" aria-selected="true" data-day="0">
+              <span>Ngày 01</span><strong>Chạm vào thung lũng</strong><small>Thứ bảy · 29/08</small>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="1">
+              <span>Ngày 02</span><strong>Theo đường tới Ba Khan</strong><small>Chủ nhật · 30/08</small>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="2">
+              <span>Ngày 03</span><strong>Mang gió núi về</strong><small>Thứ hai · 31/08</small>
+            </button>
+          </div>
+
+          <div class="timeline-panel reveal-on-scroll" id="timelinePanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="transport section-pad" id="di-chuyen">
+        <div class="shell">
+          <div class="section-heading compact reveal-on-scroll">
+            <div>
+              <span class="section-number">02</span>
+              <span class="section-label">Di chuyển</span>
+            </div>
+            <h2>Đường đi cũng là<br /><em>một phần chuyến đi.</em></h2>
+          </div>
+
+          <div class="ticket-grid">
+            <article class="ticket reveal-on-scroll">
+              <div class="ticket-topline">
+                <span>CHIỀU ĐI · Ô TÔ</span>
+                <span class="status-pill">Lên plan</span>
+              </div>
+              <div class="ticket-route">
+                <div><strong>07:00-08:00</strong><span>Hà Nội</span><small>29.08 · Điểm hẹn</small></div>
+                <div class="route-line">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 17h18M5 17V7h14v10M7 10h4m2 0h4M7 14h2m6 0h2M7 21v-4m10 4v-4"/></svg>
+                  <i></i><span>3 giờ 30 · 140 km</span>
+                </div>
+                <div class="align-right"><strong>11:00-12:00</strong><span>Mai Châu</span><small>29.08 · Mai Châu Home</small></div>
+              </div>
+              <div class="ticket-footer"><span>2 hành khách</span><span>Tuyến QL6</span><strong>Tự túc</strong></div>
+            </article>
+
+            <article class="ticket accent reveal-on-scroll">
+              <div class="ticket-topline">
+                <span>LƯU TRÚ · 2 ĐÊM</span>
+                <span class="status-pill light-pill">Đã chốt</span>
+              </div>
+              <div class="scooter-info">
+                <div class="scooter-icon">
+                  <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M8 30 32 10l24 20M14 27v27h36V27M25 54V38h14v16M21 29h22"/></svg>
+                </div>
+                <div><strong>Mai Châu Home</strong><span>29—31/08 · 2 khách · Mai Châu</span></div>
+                <div class="price"><strong>2 đêm</strong><small>đã chọn</small></div>
+              </div>
+              <div class="travel-tip">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-4 12.74V19h8v-3.26A7 7 0 0 0 12 3Zm-4 16h8m-7 3h6"/></svg>
+                <span>Xác nhận giờ nhận phòng với nhà nghỉ trước ngày đi.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="transport-strip reveal-on-scroll">
+            <div><span>Chặng ngày 02</span><strong>08:00 · Mai Châu</strong></div>
+            <i></i>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 17h18M5 17V8h14v9M8 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM8 11h8"/></svg>
+            <i></i>
+            <div class="align-right"><span>Điểm đến</span><strong>09:00 · Ba Khan</strong></div>
+            <div class="flight-code">~30 KM <small>TỰ LÁI</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="places section-pad" id="vui-choi">
+        <div class="shell">
+          <div class="section-heading side reveal-on-scroll">
+            <div>
+              <span class="section-number">03</span>
+              <span class="section-label">Địa điểm vui chơi</span>
+            </div>
+            <h2>Những nơi mình<br /><em>sẽ cùng nhớ.</em></h2>
+            <div class="place-count"><strong>06</strong><span>điểm dừng<br />đã lưu</span></div>
+          </div>
+
+          <div class="places-grid">
+            <article class="place-card place-featured reveal-on-scroll">
+              <div class="place-photo"></div>
+              <div class="place-gradient"></div>
+              <div class="place-index">01</div>
+              <div class="place-copy">
+                <div class="tags"><span>Mặt hồ</span><span>Ngắm cảnh</span></div>
+                <h3>Hồ<br />Ba Khan</h3>
+                <p>09:00 · Chủ nhật 30/08</p>
+              </div>
+            </article>
+
+            <article class="place-card paper-card reveal-on-scroll">
+              <div class="postcard-stamp">DALAT<br /><span>15 FEB</span></div>
+              <div class="line-art mountain-art">
+                <svg aria-hidden="true" viewBox="0 0 400 220"><path d="M-10 205 78 93l55 71 57-111 96 151 48-78 77 79M20 205c75-31 123-22 183 0m40 0c44-19 90-25 152 0"/><circle cx="316" cy="49" r="22"/></svg>
+              </div>
+              <div class="place-index">02</div>
+              <div class="paper-copy"><span>Dạo bộ · Đạp xe</span><h3>Bản Lác</h3><p>Chiều 29/08 · Ngắm thung lũng.</p></div>
+            </article>
+
+            <article class="place-card color-card orange reveal-on-scroll">
+              <div class="abstract-flower" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+              <div class="place-index">03</div>
+              <div class="color-copy"><span>09:30 — 11:00</span><h3>Thác<br />Gò Lào</h3><p>Đi giày chống trượt</p></div>
+            </article>
+
+            <article class="place-card color-card green reveal-on-scroll">
+              <div class="coffee-ring" aria-hidden="true"><i></i></div>
+              <div class="place-index">04</div>
+              <div class="color-copy"><span>Dừng chân · Ngắm núi</span><h3>Đèo<br />Thung Khe</h3><p>Ghé trên đường tới Mai Châu.</p></div>
+            </article>
+
+            <article class="place-card paper-card small reveal-on-scroll">
+              <div class="place-index">05</div>
+              <div class="line-art church-art">
+                <svg aria-hidden="true" viewBox="0 0 280 180"><path d="M65 159h150M92 159V81h96v78M119 81V51h43v30M140 51V20m-12 12h24M111 159v-45h22v45m16 0v-45h22v45M78 104 48 133m154-29 30 29"/></svg>
+              </div>
+              <div class="paper-copy"><span>Văn hóa · Nhà sàn</span><h3>Bản Pom Coọng</h3><p>Sáng 31/08 · Đi bộ thong thả</p></div>
+            </article>
+
+            <article class="place-card paper-card small map-card reveal-on-scroll">
+              <div class="place-index">06</div>
+              <div class="map-lines" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+              <div class="paper-copy"><span>Thổ cẩm · Quà mang về</span><h3>Chợ Mai Châu</h3><p>Ghé trước khi rời thung lũng</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="packing section-pad" id="hanh-ly">
+        <div class="shell">
+          <div class="section-heading light-heading reveal-on-scroll">
+            <div>
+              <span class="section-number">04</span>
+              <span class="section-label">Đồ dùng cá nhân</span>
+            </div>
+            <h2>Gọn nhẹ thôi,<br /><em>mang nhau là đủ.</em></h2>
+          </div>
+
+          <div class="packing-layout">
+            <aside class="packing-progress reveal-on-scroll">
+              <div class="progress-ring" id="progressRing" style="--progress: 0deg">
+                <div><strong id="progressNumber">0%</strong><span>đã sẵn sàng</span></div>
+              </div>
+              <p><strong id="checkedCount">0/8</strong> món đã xếp vào vali</p>
+              <button id="resetChecklist" type="button">Bỏ chọn tất cả</button>
+            </aside>
+
+            <div class="checklists reveal-on-scroll" id="checklists">
+              <div class="checklist-group essentials-list">
+                <div class="checklist-title"><span class="person-avatar shared-avatar">2</span><div><small>CHECKLIST DÙNG CHUNG</small><strong>Vật dụng cần mang</strong></div></div>
+                <label><input type="checkbox" data-key="hop-ban-chai" /><span class="fake-check"></span><span>Hộp đựng bàn chải + kem đánh răng</span></label>
+                <label><input type="checkbox" data-key="khan-tam" /><span class="fake-check"></span><span>Khăn tắm dùng 1 lần</span></label>
+                <label><input type="checkbox" data-key="tripod" /><span class="fake-check"></span><span>Tripod</span></label>
+                <label><input type="checkbox" data-key="sua-tam-dau-goi" /><span class="fake-check"></span><span>Sữa tắm + dầu gội đầu</span></label>
+                <label><input type="checkbox" data-key="khan-giay" /><span class="fake-check"></span><span>Khăn ướt + giấy khô</span></label>
+                <label><input type="checkbox" data-key="tui-giay-dep" /><span class="fake-check"></span><span>Túi đựng giày/dép</span></label>
+                <label><input type="checkbox" data-key="gang-tay" /><span class="fake-check"></span><span>Găng tay chống nắng</span></label>
+                <label><input type="checkbox" data-key="o" /><span class="fake-check"></span><span>Ô</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="closing-image"></div>
+        <div class="closing-overlay"></div>
+        <div class="closing-content shell reveal-on-scroll">
+          <span>29 — 31 THÁNG 08, 2026</span>
+          <h2>Thế giới rộng lắm.<br /><em>Mình đi cùng nhau nhé?</em></h2>
+          <button type="button" id="printPlan">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>
+            Lưu bản kế hoạch
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <a class="brand dark-brand" href="#top"><span class="brand-mark">t</span><span>trốn.</span></a>
+        <p>Hai người · Một chiếc vali · Rất nhiều kỷ niệm</p>
+        <span>Made for our little escape ✦</span>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status">Đã sao chép kế hoạch!</div>
+    <script src="script.js"></script>
+  </body>
+</html>
