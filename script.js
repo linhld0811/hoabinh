@@ -160,90 +160,53 @@ document.querySelector("#copyPlan").addEventListener("click", async () => {
 
 document.querySelector("#printPlan").addEventListener("click", () => window.print());
 
-// YouTube requires a user interaction before sound can start in most browsers.
+// Browsers may require a user interaction before audible media can start.
 const musicToggle = document.querySelector("#musicToggle");
 const musicLabel = document.querySelector("#musicLabel");
-let musicPlayer;
-let musicPlayerPromise;
-let musicIsPlaying = false;
-let youtubeApiPromise;
-
-function loadYouTubeApi() {
-  if (window.YT?.Player) return Promise.resolve();
-  if (youtubeApiPromise) return youtubeApiPromise;
-
-  youtubeApiPromise = new Promise((resolve, reject) => {
-    const previousReadyHandler = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previousReadyHandler?.();
-      resolve();
-    };
-    const script = document.createElement("script");
-    script.src = "https://www.youtube.com/iframe_api";
-    script.async = true;
-    script.onerror = () => reject(new Error("YouTube API failed to load"));
-    document.head.append(script);
-  });
-  return youtubeApiPromise;
-}
+const backgroundMusic = document.querySelector("#backgroundMusic");
 
 function updateMusicButton(isPlaying) {
-  musicIsPlaying = isPlaying;
   musicToggle.classList.toggle("is-playing", isPlaying);
   musicToggle.setAttribute("aria-pressed", String(isPlaying));
-  musicToggle.setAttribute("aria-label", isPlaying ? "Tạm dừng nhạc" : "Phát nhạc cho chuyến đi");
-  musicLabel.textContent = isPlaying ? "Tạm dừng" : "Bật nhạc";
+  musicToggle.setAttribute("aria-label", isPlaying ? "Tắt nhạc" : "Phát nhạc cho chuyến đi");
+  musicLabel.textContent = isPlaying ? "Tắt nhạc" : "Bật nhạc";
 }
 
-function createMusicPlayer() {
-  if (musicPlayerPromise) return musicPlayerPromise;
-
-  musicPlayerPromise = loadYouTubeApi().then(() => new Promise((resolve) => {
-    musicPlayer = new YT.Player("youtubePlayer", {
-      videoId: "JgTZvDbaTtg",
-      playerVars: { autoplay: 1, controls: 0, loop: 1, playlist: "JgTZvDbaTtg", playsinline: 1 },
-      events: {
-        onReady: (event) => {
-          event.target.playVideo();
-          resolve();
-        },
-        onStateChange: (event) => updateMusicButton(event.data === YT.PlayerState.PLAYING),
-        onAutoplayBlocked: () => {
-          updateMusicButton(false);
-          showToast("Trình duyệt đã chặn tự động phát. Nhấn Bật nhạc để nghe.");
-        },
-        onError: () => {
-          updateMusicButton(false);
-          showToast("Không thể phát video YouTube này.");
-        },
-      },
-    });
-  }));
-  return musicPlayerPromise;
-}
+backgroundMusic.addEventListener("play", () => updateMusicButton(true));
+backgroundMusic.addEventListener("pause", () => updateMusicButton(false));
+backgroundMusic.addEventListener("error", () => showToast("Không thể tải tệp nhạc."));
 
 musicToggle.addEventListener("click", async () => {
-  musicToggle.disabled = true;
+  if (!backgroundMusic.paused) {
+    backgroundMusic.pause();
+    return;
+  }
+
   try {
-    if (!musicPlayer) {
-      musicLabel.textContent = "Đang tải…";
-      await createMusicPlayer();
-    } else if (musicIsPlaying) {
-      musicPlayer.pauseVideo();
-    } else {
-      musicPlayer.playVideo();
-    }
+    await backgroundMusic.play();
   } catch {
-    showToast("Không thể tải nhạc. Hãy kiểm tra kết nối mạng.");
+    showToast("Trình duyệt chưa cho phép phát nhạc.");
     updateMusicButton(false);
-  } finally {
-    musicToggle.disabled = false;
   }
 });
 
-// Attempt audible autoplay on page load. If the browser blocks it, the music
-// button remains available so playback can begin after one user interaction.
+async function startMusicAfterInteraction(event) {
+  if (event.target.closest?.("#musicToggle")) return;
+
+  try {
+    await backgroundMusic.play();
+    document.removeEventListener("pointerdown", startMusicAfterInteraction);
+    document.removeEventListener("keydown", startMusicAfterInteraction);
+  } catch {
+    // Keep listening until the browser accepts a user interaction.
+  }
+}
+
+// Attempt autoplay immediately. If blocked, start on the visitor's first
+// interaction and continue looping until they explicitly press Tắt nhạc.
 musicLabel.textContent = "Đang tải…";
-createMusicPlayer().catch(() => {
+backgroundMusic.play().catch(() => {
   updateMusicButton(false);
+  document.addEventListener("pointerdown", startMusicAfterInteraction);
+  document.addEventListener("keydown", startMusicAfterInteraction);
 });
